@@ -98,27 +98,4 @@ class user
     {
         return $this->lastname;
     }
-
-    /**
-     * Set articles
-     *
-     * @param articles $articles
-     * @return user
-     */
-    public function setArticles(articles $articles = null)
-    {
-        $this->articles = $articles;
-
-        return $this;
-    }
-
-    /**
-     * Get articles
-     *
-     * @return articles 
-     */
-    public function getArticles()
-    {
-        return $this->articles;
-    }
 }

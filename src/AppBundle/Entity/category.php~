@@ -98,27 +98,4 @@ class category
     {
         return $this->image;
     }
-
-    /**
-     * Set articles
-     *
-     * @param articles $articles
-     * @return category
-     */
-    public function setArticles(articles $articles = null)
-    {
-        $this->articles = $articles;
-
-        return $this;
-    }
-
-    /**
-     * Get articles
-     *
-     * @return articles 
-     */
-    public function getArticles()
-    {
-        return $this->articles;
-    }
 }

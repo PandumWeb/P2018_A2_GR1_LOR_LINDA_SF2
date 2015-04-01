@@ -188,27 +188,4 @@ class Article
     {
         return $this->image;
     }
-
-    /**
-     * Set tags
-     *
-     * @param tags $tags
-     * @return Article
-     */
-    public function setTags(tags $tags = null)
-    {
-        $this->tags = $tags;
-
-        return $this;
-    }
-
-    /**
-     * Get tags
-     *
-     * @return tags 
-     */
-    public function getTags()
-    {
-        return $this->tags;
-    }
 }
