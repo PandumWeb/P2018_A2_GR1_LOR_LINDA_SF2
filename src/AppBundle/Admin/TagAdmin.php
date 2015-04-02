@@ -39,6 +39,13 @@ class TagAdmin extends Admin
         $listMapper
             ->addIdentifier('id')
             ->add('name')
+            ->add('_action','actions',[
+                'actions' => [
+                'show'      => [],
+                'edit'      => [],
+                'delete'    => [],
+                ],
+            ])
        
         ;
     }

@@ -8,6 +8,7 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
+use AppBundle\Entity\Article;
 
 class ArticleAdmin extends Admin
 {
@@ -16,10 +17,12 @@ class ArticleAdmin extends Admin
     {
         $formMapper
             ->add('title')
+            ->add('user')
+            ->add('category')
+            ->add('tags')
             ->add('content')
-            ->add('image')
-           
-
+            ->add('image')            
+            ->add('enabled', null, array('required' => false))            
         ;
     }
 
@@ -27,8 +30,11 @@ class ArticleAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('name')
+            ->add('title')
             ->add('content')
+            ->add('user')
+            ->add('category')
+            ->add('tags')
           
 
         ;
@@ -39,9 +45,19 @@ class ArticleAdmin extends Admin
     {
         $listMapper
             ->addIdentifier('id')
-            ->add('name')
+            ->add('title')
+            ->add('user')
+            ->add('category')
+            ->add('tags')
             ->add('content')
             ->add('image')
+            ->add('_action','actions',[
+                'actions' => [
+                'show'      => [],
+                'edit'      => [],
+                'delete'    => [],
+                ],
+            ])
         ;
     }
 
@@ -49,7 +65,10 @@ class ArticleAdmin extends Admin
     {
         $showMapper
             ->add('id')
-            ->add('name')
+            ->add('user')
+            ->add('category')
+            ->add('tags')
+            ->add('title')
             ->add('image')
 
          ;

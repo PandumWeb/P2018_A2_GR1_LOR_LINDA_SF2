@@ -5,12 +5,12 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * user
+ * User
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="AppBundle\Entity\userRepository")
+ * @ORM\Entity(repositoryClass="AppBundle\Entity\UserRepository")
  */
-class user
+class User
 {
     /**
      * @var integer
@@ -35,12 +35,7 @@ class user
      */
     private $lastname;
 
-    /**
-     * @var
-     *
-     * @ORM\ManyToOne(targetEntity="articles")
-     */
-    private $articles;
+
 
 
     /**
@@ -57,7 +52,7 @@ class user
      * Set firstname
      *
      * @param string $firstname
-     * @return user
+     * @return User
      */
     public function setFirstname($firstname)
     {
@@ -80,7 +75,7 @@ class user
      * Set lastname
      *
      * @param string $lastname
-     * @return user
+     * @return User
      */
     public function setLastname($lastname)
     {
@@ -99,26 +94,10 @@ class user
         return $this->lastname;
     }
 
-    /**
-     * Set articles
-     *
-     * @param articles $articles
-     * @return user
-     */
-    public function setArticles(articles $articles = null)
+    public function __toString()
     {
-        $this->articles = $articles;
-
-        return $this;
+        return $this->getFirstName().' '.$this->getLastName();
     }
 
-    /**
-     * Get articles
-     *
-     * @return articles 
-     */
-    public function getArticles()
-    {
-        return $this->articles;
-    }
+ 
 }

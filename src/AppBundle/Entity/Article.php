@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -42,10 +43,14 @@ class Article
      */
     private $enabled;
 
+    const ENABLED = true;
+    const DISABLED = false;
+
+
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="createdAt", type="datetimetz")
+     * @ORM\Column(name="createdAt", type="datetime")
      */
     private $createdAt;
 
@@ -59,9 +64,24 @@ class Article
     /**
      * @var
      *
-     * @ORM\ManyToOne(targetEntity="tags")
+     * @ORM\ManyToMany(targetEntity="Tag")
      */
     private $tags;
+
+    /**
+     * @var
+     *
+     * @ORM\ManyToOne(targetEntity="Category")
+     */
+    private $category;
+
+        /**
+     * @var
+     *
+     * @ORM\ManyToOne(targetEntity="User")
+     */
+    private $user;
+
 
 
     /**
@@ -205,10 +225,90 @@ class Article
     /**
      * Get tags
      *
-     * @return tags 
+     * @return ArrayCollection
      */
     public function getTags()
     {
         return $this->tags;
     }
+    
+
+
+    /**
+     * Set category
+     *
+     * @param category $category
+     * @return Article
+     */
+    public function setCategory( $category = null)
+    {
+        $this->category = $category;
+
+        return $this;
+    }
+
+    /**
+     * Get category
+     *
+     * @return category 
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
+
+    /**
+     * Set user
+     *
+     * @param user $user
+     * @return Article
+     */
+    public function setUser(user $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return user 
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * Add tags
+     *
+     * @param tag $tags
+     * @return Article
+     */
+    public function addTag(tag $tags)
+    {
+        $this->tags[] = $tags;
+
+        return $this;
+    }
+
+    /**
+     * Remove tags
+     *
+     * @param tag $tags
+     */
+    public function removeTag(tag $tags)
+    {
+        $this->tags->removeElement($tags);
+    }
+
+      /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->createdAt = new \DateTime();
+    }
+
 }

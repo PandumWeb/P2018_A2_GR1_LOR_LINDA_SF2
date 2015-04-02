@@ -5,12 +5,12 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * category
+ * Category
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="AppBundle\Entity\categoryRepository")
+ * @ORM\Entity(repositoryClass="AppBundle\Entity\CategoryRepository")
  */
-class category
+class Category
 {
     /**
      * @var integer
@@ -35,13 +35,7 @@ class category
      */
     private $image;
 
-    /**
-     * @var
-     *
-     * @ORM\ManyToOne(targetEntity="articles")
-     */
-    private $articles;
-
+    
 
     /**
      * Get id
@@ -57,7 +51,7 @@ class category
      * Set name
      *
      * @param string $name
-     * @return category
+     * @return Category
      */
     public function setName($name)
     {
@@ -80,7 +74,7 @@ class category
      * Set image
      *
      * @param string $image
-     * @return category
+     * @return Category
      */
     public function setImage($image)
     {
@@ -99,26 +93,11 @@ class category
         return $this->image;
     }
 
-    /**
-     * Set articles
-     *
-     * @param articles $articles
-     * @return category
+   /**
+     * @return string
      */
-    public function setArticles(articles $articles = null)
+    public function __toString()
     {
-        $this->articles = $articles;
-
-        return $this;
-    }
-
-    /**
-     * Get articles
-     *
-     * @return articles 
-     */
-    public function getArticles()
-    {
-        return $this->articles;
+        return $this->name;
     }
 }

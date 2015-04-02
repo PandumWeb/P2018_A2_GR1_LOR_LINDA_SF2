@@ -2,15 +2,16 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * tag
+ * Tag
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="AppBundle\Entity\tagRepository")
+ * @ORM\Entity(repositoryClass="AppBundle\Entity\TagRepository")
  */
-class tag
+class Tag
 {
     /**
      * @var integer
@@ -30,6 +31,15 @@ class tag
 
 
     /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->Tags = new ArrayCollection();
+    }
+
+
+    /**
      * Get id
      *
      * @return integer 
@@ -43,7 +53,7 @@ class tag
      * Set name
      *
      * @param string $name
-     * @return tag
+     * @return Tag
      */
     public function setName($name)
     {
@@ -58,6 +68,14 @@ class tag
      * @return string 
      */
     public function getName()
+    {
+        return $this->name;
+    }
+
+     /**
+     * @return string
+     */
+    public function __toString()
     {
         return $this->name;
     }

@@ -40,6 +40,13 @@ class UserAdmin extends Admin
             ->addIdentifier('id')
             ->add('firstname')
             ->add('lastname')
+            ->add('_action','actions',[
+                'actions' => [
+                'show'      => [],
+                'edit'      => [],
+                'delete'    => [],
+                ],
+            ])
            
         ;
     }

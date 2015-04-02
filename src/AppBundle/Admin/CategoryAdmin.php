@@ -40,6 +40,13 @@ class CategoryAdmin extends Admin
             ->addIdentifier('id')
             ->add('name')
             ->add('image')
+            ->add('_action','actions',[
+                'actions' => [
+                'show'      => [],
+                'edit'      => [],
+                'delete'    => [],
+                ],
+            ])
         ;
     }
 
