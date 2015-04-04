@@ -1,0 +1,30 @@
+{% extends 'layout.html.twig' %}
+{% block content  -%}
+    <section class="row">
+        <h1>
+            Article list
+        </h1>
+        {% for article in articles %}
+            <article class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                <header>
+                    <figure>
+                        <img class="img-responsive" src="{{ article.image }}" alt="picture" title="{{ article.title }}">
+                        <figcaption>
+                            <h1>{{ article.title }}</h1>
+                            <h2>{{ article.category }}</h2>
+                        </figcaption>
+                    </figure>
+                </header>
+                <p>{{ article.content }}</p>
+                <footer>
+                    <p>
+        
+                    </p>
+                </footer>
+            </article>
+        {% endfor %}
+    </section>
+
+
+
+{% endblock %}

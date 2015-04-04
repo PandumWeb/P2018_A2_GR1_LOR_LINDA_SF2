@@ -14,7 +14,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 class DemoController extends Controller
 {
     /**
-     * @Route("/", name="_demo")
+     * @Route("/nulls", name="_demo")
      * @Template()
      */
     public function indexAction()
