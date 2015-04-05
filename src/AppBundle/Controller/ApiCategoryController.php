@@ -15,7 +15,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
  *
  * @Route("/api")
  */
-class CategoryController extends Controller
+class ApiCategoryController extends Controller
 {
     /**
      * @route("/category/{id}",name="api_category", defaults={"id"=null}, requirements={"id"="\d+"})

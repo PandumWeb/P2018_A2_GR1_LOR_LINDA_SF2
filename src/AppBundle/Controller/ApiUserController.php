@@ -15,19 +15,19 @@ use Symfony\Component\HttpFoundation\JsonResponse;
  *
  * @Route("/api")
  */
-class ArticleController extends Controller
+class ApiUserController extends Controller
 {
     /**
-     * @route("/article/{id}",name="api_article", defaults={"id"=null}, requirements={"id"="\d+"})
+     * @route("/user/{id}",name="api_user", defaults={"id"=null}, requirements={"id"="\d+"})
      */
-    public function acticleAction($id = null)
+    public function userAction($id = null)
     {
         $em = $this->getDoctrine()->getManager();
         /** @var ArticleRepository $repo */
-        $repo = $em->getRepository('AppBundle:Article');
+        $repo = $em->getRepository('AppBundle:User');
 
-        $articles = $repo->findApi();
+        $users = $repo->findApi();
         //var_dump($id);die;
-        return new JsonResponse($articles);
+        return new JsonResponse($users);
     }
 }

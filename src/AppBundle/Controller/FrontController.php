@@ -12,7 +12,7 @@ use AppBundle\Entity\Article;
  *
  * @Route("/articles")
  */
-class DefaultController extends Controller
+class FrontController extends Controller
 {
 
     /**

@@ -9,22 +9,25 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
-
-class TagController extends Controller
+/**
+ * Class apiController
+ * @package AppBundle\Controller
+ *
+ * @Route("/api")
+ */
+class ApiArticleController extends Controller
 {
     /**
-     * @route("/article",name="article")
+     * @route("/article/{id}",name="api_article", defaults={"id"=null}, requirements={"id"="\d+"})
      */
-    public function articleAction()
+    public function acticleAction($id = null)
     {
         $em = $this->getDoctrine()->getManager();
         /** @var ArticleRepository $repo */
         $repo = $em->getRepository('AppBundle:Article');
 
-        $tags = $repo->findApi();
+        $articles = $repo->findApi();
         //var_dump($id);die;
-        return $this->render('AppBundle:Article:index.html.twig',[
-            'article' => $article,
-        ]);
+        return new JsonResponse($articles);
     }
 }
