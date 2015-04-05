@@ -1,30 +1,24 @@
 {% extends 'layout.html.twig' %}
 {% block content  -%}
-    <section class="row">
-        <h1>
-            Article list
-        </h1>
+<div class="container-fluid">
+ 
         {% for article in articles %}
-            <article class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-                <header>
-                    <figure>
-                        <img class="img-responsive" src="{{ article.image }}" alt="picture" title="{{ article.title }}">
-                        <figcaption>
-                            <h1>{{ article.title }}</h1>
-                            <h2>{{ article.category }}</h2>
-                        </figcaption>
-                    </figure>
-                </header>
-                <p>{{ article.content }}</p>
-                <footer>
-                    <p>
-        
+      <div class="row" style="margin:20px;">
+            <div class="col-sm-2 col-md-2">
+               <img class="img-responsive" src="{{ article.image }}" alt="picture" title="{{ article.title }}">
+            </div>
+            <div>
+                <blockquote>
+                    <p>{{article.user}}</p> <small><cite title="Source Title">{{ article.title }} </cite></small>
+                    <p>{{article.content}}</p>
+                </blockquote>
+                <p> <i class="glyphicon glyphicon-pushpin"></i> {{ article.category }}
+                    <br
+                    /> <i class="glyphicon glyphicon-dashboard"></i> Créé le: {{ article.createdAt|date('d-m-Y') }}
                     </p>
-                </footer>
-            </article>
+            </div>
+  </div>
         {% endfor %}
-    </section>
-
-
-
+  
+</div>
 {% endblock %}
